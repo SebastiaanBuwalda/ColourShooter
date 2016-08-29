@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
 public class ShootToFire : MonoBehaviour 
 {
 	[SerializeField]
-	private GameObject shootLaser;
+	private GameObject[] shootLaser;
 
 	[SerializeField]
 	private float bulletYPostionModifier;
@@ -15,6 +16,9 @@ public class ShootToFire : MonoBehaviour
 
 	[SerializeField]
 	private SnapToMouse snapToMouse;
+
+	[SerializeField]
+	private SwitchColour switchColour;
 
 	void Start () 
 	{
@@ -27,10 +31,7 @@ public class ShootToFire : MonoBehaviour
 		yield return new WaitForSeconds (timer);
 		if ((this.transform.position == snapToMouse.PlacementVector)) 
 		{
-			if(Input.GetMouseButton(0))
-			{
-			Instantiate (shootLaser,new Vector3 (transform.position.x,transform.position.y+bulletYPostionModifier), Quaternion.identity);
-			}
+			Instantiate (shootLaser[Convert.ToInt32(switchColour.IsRed)],new Vector3 (transform.position.x,transform.position.y+bulletYPostionModifier), Quaternion.identity);
 		}
 		StartCoroutine (WaitForRefire ());
 	}

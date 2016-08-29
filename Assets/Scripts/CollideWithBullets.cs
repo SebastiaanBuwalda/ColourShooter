@@ -11,6 +11,5 @@ public class CollideWithBullets : MonoBehaviour
 	{
 		healthScript.Health = healthScript.Health - 1;
 		Destroy (other.gameObject);
-		print ("rah");
 	}
 }
