@@ -6,6 +6,8 @@ public class HealthAndDestroy : MonoBehaviour
 	[SerializeField]
 	private int health = 5;
 
+
+
 	void Update ()
 	{
 		if(health<=0)

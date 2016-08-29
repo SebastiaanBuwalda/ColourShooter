@@ -8,6 +8,6 @@ public class MoveWithVecor : MonoBehaviour {
 
 	void Update () 
 	{
-		transform.Translate (moveVector * Time.deltaTime);
+		transform.Translate (moveVector * Time.deltaTime, Space.World);
 	}
 }

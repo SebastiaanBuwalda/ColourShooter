@@ -11,13 +11,21 @@ public class SwitchColour : MonoBehaviour {
 	[SerializeField]
 	private SpriteRenderer spriteRenderer;
 
+	[SerializeField]
+	private CollideWithBullets collideWithBullets;
+
 	void Update()
 	{
 		if (Input.GetMouseButtonUp (0)) 
 		{
 			isRed = !isRed;
-			print ("mouse up");
 			spriteRenderer.sprite = shipSprites [Convert.ToInt32(isRed)];
+			if (collideWithBullets.HurtfullString == Tags.blueEnemyFire) {
+				collideWithBullets.HurtfullString = Tags.redEnemyFire;
+			}
+			else if (collideWithBullets.HurtfullString == Tags.redEnemyFire) {
+				collideWithBullets.HurtfullString = Tags.blueEnemyFire;
+			}
 		}
 	}
 
