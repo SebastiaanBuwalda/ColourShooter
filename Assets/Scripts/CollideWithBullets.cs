@@ -10,7 +10,7 @@ public class CollideWithBullets : MonoBehaviour
 	[SerializeField]
 	private string hurtfullString;
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerStay2D(Collider2D other)
 	{
 		if (other.tag == hurtfullString) {
 			healthScript.Health = healthScript.Health - 1;
